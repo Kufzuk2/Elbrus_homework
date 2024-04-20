@@ -1,55 +1,54 @@
-module 3_div
+module div
 #(
     parameter DATA_W = 8
 )
 
 (
-    output divisibility,
-    input [(DATA_W - 1): 0] data
+    input [(DATA_W - 1): 0] data_0,
+    output divisibility
 );
 
     localparam power = $clog2(DATA_W);
-    /*
-    if (2  **  power == DATA_W)
-    begin
-        localparam CUR_DATA = DATA_W;
-    end
+    localparam res_size = DATA_W;
+    
+    reg [(power - 1): 0]  odd = 0;
+    reg [(power - 1): 0] even = 0;
+
+    localparam i_max = $clog2($clog2(DATA_W));
+    wire [i_max - 1: 0][DATA_W - 1: 0] res;
+    assign res[0] = data;
 
 
-    else if
-    begin
-        
-        localparam CUR_DATA = 2 ** (power + 1);
-    end
-*/
+    genvar i;
+    generate
 
-    begin
-
-    reg [(power - 1): 0]  odd;
-    reg [(power - 1): 0] even;
-    reg [(power - 1): 0]  res;
-
-
-
-
-    always @*
+        for (i = 0; i < i_max; i = i + 1)
+        begin
+        always
         begin
 
-        for (int i = 0; i < DATA_W; i = i + 2)
-        begin
-            even = even + data[i]; 
+            for (integer N = 0; N < DATA_W; N = N + 2)
+            begin
+                even = even + res[i][N]; 
+            end
+
+            for (integer N = 1; N < DATA_W; N = N + 2)
+            begin
+                odd  =  odd + res[i][N]; 
+            end
+
+            res[i + 1] = (even < odd) ? odd - even: even - odd;
+            even = 0;
+            odd  = 0;
         end
-
-        for (int i = 1; i < DATA_W; i = i + 2)
-        begin
-            odd  =  odd + data[i]; 
         end
+    endgenerate
 
-        res = (even & odd) + !(even ^ odd);
+    
 
-        
+      assign divisibility = ~res[i_max - 1];
 
-    end
+endmodule
 
 
 

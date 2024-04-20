@@ -1,0 +1,165 @@
+$date
+	Sat Apr 20 19:33:42 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module testbench $end
+$var wire 1 ! divisibility $end
+$var reg 1 " clock $end
+$var reg 8 # data [7:0] $end
+$scope module div $end
+$var wire 8 $ data [7:0] $end
+$var wire 1 ! divisibility $end
+$var wire 3 % odd [2:0] $end
+$var wire 3 & new_data [2:0] $end
+$var wire 3 ' even [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx '
+bx &
+bx %
+bx $
+bx #
+1"
+x!
+$end
+#50
+0"
+#100
+1!
+b0 &
+b0 '
+b0 %
+1"
+b0 #
+b0 $
+#150
+0"
+#200
+1"
+#250
+0"
+#300
+0!
+b1 &
+b1 '
+1"
+b1 #
+b1 $
+#350
+0"
+#400
+1"
+#450
+0"
+#500
+1!
+b0 &
+b1 %
+1"
+b11 #
+b11 $
+#550
+0"
+#600
+1"
+#650
+0"
+#700
+0!
+b1 &
+b0 '
+b1 %
+1"
+b1000 #
+b1000 $
+#750
+0"
+#800
+1"
+#850
+0"
+#900
+b1 '
+b10 %
+1"
+b1011 #
+b1011 $
+#950
+0"
+#1000
+1"
+#1050
+0"
+#1100
+1!
+b0 &
+b10 '
+1"
+b1111 #
+b1111 $
+#1150
+0"
+#1200
+1"
+#1250
+0"
+#1300
+b11 &
+b1 '
+b100 %
+1"
+b10101011 #
+b10101011 $
+#1350
+0"
+#1400
+1"
+#1450
+0"
+#1500
+1!
+b0 &
+b100 '
+1"
+b11111111 #
+b11111111 $
+#1550
+0"
+#1600
+1"
+#1650
+0"
+#1700
+0!
+b1 &
+b11 '
+b10 %
+1"
+b1110011 #
+b1110011 $
+#1750
+0"
+#1800
+1"
+#1850
+0"
+#1900
+1!
+b0 &
+b11 '
+b11 %
+1"
+b11011110 #
+b11011110 $
+#1950
+0"
+#2000
+1"
